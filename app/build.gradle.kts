@@ -57,4 +57,9 @@ dependencies {
 
     //circular Imageview
     implementation ("de.hdodenhof:circleimageview:3.1.0")
+
+    implementation ("com.intuit.ssp:ssp-android:1.1.0")
+    implementation ("com.intuit.sdp:sdp-android:1.1.0")
+
+    
 }

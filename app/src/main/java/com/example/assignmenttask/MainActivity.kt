@@ -5,10 +5,13 @@ import android.os.Bundle
 import android.util.Log
 import android.view.LayoutInflater
 import android.widget.Toast
+import androidx.appcompat.app.ActionBar
+import com.bumptech.glide.Glide
 import com.example.assignmenttask.adapters.MembersAdapter
 import com.example.assignmenttask.databinding.ActivityMainBinding
 import com.example.assignmenttask.models.All
 import com.example.assignmenttask.models.ResponseApi
+import com.example.assignmenttask.models.Top3
 import com.example.assignmenttask.services.ApiService
 import retrofit2.Call
 import retrofit2.Callback
@@ -29,9 +32,7 @@ class MainActivity : AppCompatActivity() {
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        binding.whiteShape.setOnClickListener{
-            Toast.makeText(this, "Clicked", Toast.LENGTH_SHORT).show()
-        }
+
 
         getLeaderBoard()
     }
@@ -57,7 +58,11 @@ class MainActivity : AppCompatActivity() {
                     val allMembers= result?.data?.hostDaily?.all
                     Log.d("ShowResponse", allMembers.toString())
 
+                    val topThree = result?.data?.hostDaily?.top3
+
                     setAdapter(allMembers)
+
+                    setTopThree(topThree)
 
 
                 }
@@ -74,6 +79,42 @@ class MainActivity : AppCompatActivity() {
         if(list!=null){
             val adapter = MembersAdapter(this,list)
             binding.rvMemberList.adapter =adapter
+        }
+
+    }
+
+    fun setTopThree(list: List<Top3>?){
+        if(list?.size==3){
+            Glide
+                .with(this)
+                .load(list[0].profilePic)
+                .centerCrop()
+                .placeholder(R.color.black)
+                .dontAnimate()
+                .into(binding.ivTopOne)
+            binding.tvTopper.text = list[0].firstName
+            binding.tvToopersCoin.text =list[0].giftcoin.toString()
+
+            Glide
+                .with(this)
+                .load(list[1].profilePic)
+                .centerCrop()
+                .placeholder(R.color.black)
+                .dontAnimate()
+                .into(binding.ivTopTwo)
+            binding.tvSecond.text = list[1].firstName
+            binding.tvSecondsCoin.text =list[1].giftcoin.toString()
+
+
+            Glide
+                .with(this)
+                .load(list[2].profilePic)
+                .centerCrop()
+                .placeholder(R.color.black)
+                .dontAnimate()
+                .into(binding.ivTopThree)
+            binding.tvThird.text = list[2].firstName
+            binding.tvThirdsCoin.text =list[2].giftcoin.toString()
         }
 
 

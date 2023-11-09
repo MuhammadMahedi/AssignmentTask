@@ -32,8 +32,8 @@ class MembersAdapter(private val context: Context,
             holder.tvGiftCoin.text = ((model.giftcoin)/1000.0).toString()+"K"
 
             if(model.gender.isNotEmpty()){
-                holder.tvGander.text = model.gender
-            }else holder.tvGander.text = "male"
+                holder.tvGender.text = model.gender
+            }else holder.tvGender.text = "male"
 
             Glide
                 .with(context)
@@ -51,7 +51,7 @@ class MembersAdapter(private val context: Context,
         val tvPosition = itemView.findViewById<TextView>(R.id.tv_position)
         val tvLevel = itemView.findViewById<TextView>(R.id.tv_level)
         val tvGiftCoin = itemView.findViewById<TextView>(R.id.tv_gift_coin)
-        val tvGander = itemView.findViewById<TextView>(R.id.tv_gander)
+        val tvGender = itemView.findViewById<TextView>(R.id.tv_gender)
         val image= itemView.findViewById<ImageView>(R.id.img)
     }
 }

@@ -84,7 +84,7 @@
                     android:layout_height="wrap_content"
                     android:src="@drawable/ic_gander"/>
                 <TextView
-                    android:id="@+id/tv_gander"
+                    android:id="@+id/tv_gender"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="Male"
