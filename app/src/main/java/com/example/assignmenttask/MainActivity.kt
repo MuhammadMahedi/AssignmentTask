@@ -33,6 +33,9 @@ class MainActivity : AppCompatActivity() {
         setContentView(binding.root)
 
 
+        binding.toolbar.setNavigationOnClickListener {
+            onBackPressed()
+        }
 
         getLeaderBoard()
     }
