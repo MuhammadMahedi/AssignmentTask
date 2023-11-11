@@ -6,5 +6,5 @@ import retrofit2.Call
 import javax.inject.Inject
 
 class MainRepo @Inject constructor(private val apiService: ApiService) {
-       fun getCallResponse(): Call<ResponseApi> = apiService.getLeaderboardData()
+    fun getCallResponse(): Call<ResponseApi> = apiService.getLeaderboardData()
 }

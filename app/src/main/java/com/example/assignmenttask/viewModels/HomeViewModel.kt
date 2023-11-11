@@ -10,23 +10,15 @@ import retrofit2.Call
 import javax.inject.Inject
 
 @HiltViewModel
-class HomeViewModel @Inject constructor (private val mainRepo: MainRepo): ViewModel() {
+class HomeViewModel @Inject constructor(private val mainRepo: MainRepo) : ViewModel() {
 
     private var _callResponse = MutableLiveData<Call<ResponseApi>>()
-    val callResponse : LiveData<Call<ResponseApi>> = _callResponse
+    val callResponse: LiveData<Call<ResponseApi>> = _callResponse
 
-    fun getCallResponse(){
-//        val retrofit = Retrofit.Builder()
-//            .baseUrl(MainActivity.BASE_URL)
-//            .addConverterFactory(GsonConverterFactory.create())
-//            .build()
-//        val leaderboardApi = retrofit.create(ApiService::class.java)
-//
-//        val call = leaderboardApi.getLeaderboardData()
+    fun getCallResponse() {
 
-            val call = mainRepo.getCallResponse()
-            _callResponse.postValue(call)
-
+        val call = mainRepo.getCallResponse()
+        _callResponse.postValue(call)
 
 
     }

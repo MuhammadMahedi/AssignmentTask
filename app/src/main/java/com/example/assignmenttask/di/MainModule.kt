@@ -1,6 +1,6 @@
 package com.example.assignmenttask.di
 
-import com.example.assignmenttask.MainActivity
+import com.example.assignmenttask.activities.MainActivity
 import com.example.assignmenttask.repositories.MainRepo
 import com.example.assignmenttask.services.ApiService
 import dagger.Module
@@ -17,7 +17,7 @@ class MainModule {
 
     @Provides
     @Singleton
-    fun apiServiceProvider():ApiService = Retrofit.Builder()
+    fun apiServiceProvider(): ApiService = Retrofit.Builder()
         .baseUrl(MainActivity.BASE_URL)
         .addConverterFactory(GsonConverterFactory.create())
         .build()
